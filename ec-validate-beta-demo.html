@@ -329,26 +329,22 @@
             }
         },
         mounted:function () {
-//            //添加扩展规则
-//            ecValidate.extend('isChinese',function (val, msg) {
-//                return !/^[\u4E00-\u9FA5]+$/.test(val) ? msg : '';
-//            })
+           //添加扩展规则
+            ecValidate.extend('isPwd',function (val, msg) {
+                if (!/^[a-zA-Z0-9.]+$/.test(val)) {
+                    return msg
+                }
+            })
 
-            // ecValidate.extend('isPwd',function (val, msg) {
-            //     if (!/^[a-zA-Z0-9.]+$/.test(val)) {
-            //         return msg
-            //     }
-            // })
-
-            // let tips=ecValidate.check([
-            //     {
-            //         data:'@5626a',
-            //         rules:{
-            //             'isPwd':'请输入正确的密码格式'
-            //         }
-            //     }
-            // ]);
-            // console.log(tips);
+            let tips=ecValidate.check([
+                {
+                    data:'@5626a',
+                    rules:{
+                        'isPwd':'请输入正确的密码格式'
+                    }
+                }
+            ]);
+            console.log(tips);
         }
     })
 </script>
