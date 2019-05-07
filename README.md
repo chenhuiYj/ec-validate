@@ -108,3 +108,6 @@ html|校验之前去除html标签
 ## 6.使用实例
 
 ./ec-validate-beta-demo.html
+
+## LICENSE
+MIT
