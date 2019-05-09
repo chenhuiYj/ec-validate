@@ -158,7 +158,6 @@ let ecValidate = (function () {
             }
           }
         }
-        return undefined
       },
       /**
            * @description 校验所有接口
@@ -203,7 +202,9 @@ let ecValidate = (function () {
             }
           }
         }
-        return Object.keys(msgObj).length > 0 ? msgObj : undefined
+        if(Object.keys(msgObj).length > 0){
+          return msgObj;
+        }
       },
       /**
            * @description 添加规则接口
