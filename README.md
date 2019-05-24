@@ -105,7 +105,41 @@ noLowerEnglish|是否不包含小写英文字母格式
 trim|校验之前去除前后空格
 html|校验之前去除html标签
 
-## 6.使用实例
+## 6.extendFilter
+
+扩展filter
+
+#### 6-1.使用说明
+
+ecValidate.extendFilter(type,fn)
+
+#### 6-2.参数说明
+
+参数|说明|必填|类型|说明
+---|---|---|---|---
+type|添加的规则名称|是|string|---
+fn|规则的处理函数|是|function|(fn(val) val值为data)
+
+#### 6-3.使用实例
+```JavaScript
+//添加 Filter 扩展规则
+ecValidate.extendFilter('word',function(val){
+    return val.replace(/[0-9]/g, "")
+})
+//客户端使用
+let tips2=ecValidate.check([
+    {
+        data:'asdwx',
+        filter:'word',
+        rules:{
+            'isNoNull':'邮箱不能为空',
+        }
+    }
+]);
+console.log(tips2);
+```
+
+## 7.使用实例
 
 ./ec-validate-beta-demo.html
 
