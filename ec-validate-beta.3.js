@@ -106,16 +106,16 @@ let ecValidate = (function () {
       trim(val){
         return val.replace(/(^\s*)|(\s*$)/g, "")
       },
-      html(){
+      html(val){
         return val.replace(/<\/?[^>]*>/g, "")
       }
     }
     return {
       /**
-           * @description 查询接口
-           * @param arr
-           * @return {*}
-           */
+       * @description 查询接口
+       * @param arr
+       * @return {*}
+       */
       check: function (arr) {
         let ruleMsg; let checkRule; let _ruleSingle; let _ruleRow; let _rules; let _errorObj = {};let _data
         for (let i = 0, len = arr.length; i < len; i++) {
@@ -160,10 +160,10 @@ let ecValidate = (function () {
         }
       },
       /**
-           * @description 校验所有接口
-           * @param arr
-           * @return {*}
-           */
+       * @description 校验所有接口
+       * @param arr
+       * @return {*}
+       */
       checkAll: function (arr) {
         let ruleMsg; let checkRule; let _ruleSingle; let msgObj = {}; let _ruleRow; let _rules;let _data;
         for (let i = 0, len = arr.length; i < len; i++) {
@@ -207,12 +207,20 @@ let ecValidate = (function () {
         }
       },
       /**
-           * @description 添加规则接口
-           * @param type
-           * @param fn
-           */
+       * @description 添加规则接口
+       * @param type
+       * @param fn
+       */
       extend: function (type, fn) {
         ruleFn[type] = fn
+      },
+      /**
+       * @description 添加过滤规则接口
+       * @param type
+       * @param fn
+       */
+      extendFilter: function (type, fn) {
+        filterFn[type] = fn
       }
     }
   })()
