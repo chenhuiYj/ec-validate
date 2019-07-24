@@ -215,6 +215,9 @@
                 userContact: '',
                 tips:'',
             },
+            tips:{
+
+            }
         },
         methods: {
             handleSubmit1(){
@@ -229,9 +232,7 @@
                         }
                     },
                     {
-                        //校验的数据
                         data: _this.demo1.userContact,
-                        //校验的规则
                         rules: {
                             'isNoNull':'联系方式不能为空'
                         }
@@ -240,13 +241,10 @@
                 this.demo1.tips = _tips;
             },
             handleSubmit2(){
-                debugger;
                 let _this = this;
                 let _tips=ecValidate.check([
                     {
-                        //校验的数据
                         data: _this.demo2.userContact,
-                        //校验的规则
                         rules: {
                             'isNoNull':'联系方式不能为空',
                             'isEmail,isMobile':'请输入正确的联系方式'
@@ -259,9 +257,7 @@
                 let _this = this;
                 let _tips=ecValidate.check([
                     {
-                        //校验的数据
                         data: _this.demo3.pwd,
-                        //校验的规则
                         rules: {
                             'isNoNull':'密码不能为空',
                             'isPwd':'请输入正确的密码格式'
@@ -275,19 +271,15 @@
                 //在校验数组里面加上alias字段，保存错误信息。该字段要保证值唯一性，并且要么全部加上，要么全部不加，不然可能会造成页面错误
                 let _tips=ecValidate.check([
                     {
-                        //校验的数据
                         data: _this.demo4.userName,
                         alias: 'user',
-                        //校验的规则
                         rules: {
                             'isNoNull':'姓名不能为空'
                         }
                     },
                     {
-                        //校验的数据
                         data: _this.demo4.userContact,
                         alias: 'contact',
-                        //校验的规则
                         rules: {
                             'isNoNull':'联系方式不能为空'
                         }
@@ -300,19 +292,15 @@
                 //checkAll校验全部的函数，必须要加上alias字段。
                 let _tips=ecValidate.checkAll([
                     {
-                        //校验的数据
                         data: _this.demo5.userName,
                         alias: 'userName',
-                        //校验的规则
                         rules: {
                             'isNoNull':'姓名不能为空'
                         }
                     },
                     {
-                        //校验的数据
                         data: _this.demo5.userContact,
                         alias: 'contact',
-                        //校验的规则
                         rules: {
                             'isNoNull':'联系方式不能为空'
                         }
@@ -324,9 +312,7 @@
                 let _this = this;
                 let _tips=ecValidate.check([
                     {
-                        //校验的数据
                         data: _this.demo6.userContact,
-                        //校验的规则
                         rules: {
                             'isNoNull':'联系方式不能为空'
                         }
