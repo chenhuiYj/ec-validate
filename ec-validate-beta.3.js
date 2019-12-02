@@ -189,15 +189,15 @@ let ecValidate = (function () {
               _ruleSingle = checkRule.shift()
               checkRule.unshift(_data)
               checkRule.push(arr[i].rules[item])
-              // 如果规则错误
+              // 如果规则错误，就退出循环
               ruleMsg = ruleFn[_ruleSingle].apply(null, checkRule)
               if (!ruleMsg) {
                 ruleMsg = ''
                 break
               }
             }
+            // 如果有错误信息，就记录错误信息
             if (ruleMsg) {
-              // 返回错误信息
               msgObj[arr[i].alias] = ruleMsg
             }
           }
